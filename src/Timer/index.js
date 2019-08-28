@@ -49,11 +49,7 @@ let offset = null, interval = null
               interval = null
             }
           }
-        //   handleKeypause= event => {
-        //     if (event.key == 'p') {
-        //       this.pause();
-        //     }
-        //   };
+     
         
           play() {
             if (!interval) {
