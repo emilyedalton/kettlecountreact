@@ -119,9 +119,9 @@ let offset = null, interval = null
             };
 
             return (
-              <div style={timerStyle} className="react-timer" >
+              <div style={timerStyle} className="react-timer" onKeyPress={this.handleKeyPress} tabIndex="0" >
                 <h3 style={secondsStyles} className="seconds"> {this.state.time} {this.props.prefix} </h3>
-                <input onKeyPress={this.handleKeyPress}/>
+                <input />
                 <br />
                 <button onClick={this.reset.bind(this)} style={buttonStyle} >reset</button>
                 <button onClick={this.play.bind(this)} style={buttonStyle} > play</button> 
