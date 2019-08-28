@@ -43,6 +43,11 @@ let offset = null, interval = null
               interval = null
             }
           }
+        //   handleKeypause= event => {
+        //     if (event.key == 'p') {
+        //       this.pause();
+        //     }
+        //   };
         
           play() {
             if (!interval) {
@@ -50,11 +55,18 @@ let offset = null, interval = null
               interval = setInterval(this.update.bind(this), this.props.options.delay)
             }
           }
-          handleKeyPress = event => {
-            if (event.key == 'Enter') {
-              this.play();
+          handleKeyPress= event => {
+              switch (event.key){
+              case "Enter":
+             this.play()
+             case "r":
+             this.reset()
+             break;
+             case "p":
+             this.pause()
+             break;
+              }
             }
-          };
         
           reset() {
             let clockReset = 0
@@ -62,6 +74,11 @@ let offset = null, interval = null
             let time = SecondsTohhmmss(clockReset / 1000)
             this.setState({time: time })
           }
+        //   handleKeyReset= event => {
+        //     if (event.key == 'r') {
+        //       this.reset();
+        //     }
+        //   };
         
           update() {
             let clock = this.state.clock
@@ -102,12 +119,13 @@ let offset = null, interval = null
             };
 
             return (
-              <div style={timerStyle} className="react-timer">
+              <div style={timerStyle} className="react-timer" >
                 <h3 style={secondsStyles} className="seconds"> {this.state.time} {this.props.prefix} </h3>
+                <input onKeyPress={this.handleKeyPress}/>
                 <br />
-                <button onClick={this.reset.bind(this)} style={buttonStyle} onKeyPress={this.handleKeyPress} >reset</button>
+                <button onClick={this.reset.bind(this)} style={buttonStyle} >reset</button>
                 <button onClick={this.play.bind(this)} style={buttonStyle} > play</button> 
-                <button onClick={this.pause.bind(this)} style={buttonStyle} >pause</button>
+                <button onClick={this.pause.bind(this)} style={buttonStyle}>pause</button>
               </div>
             )
           }
