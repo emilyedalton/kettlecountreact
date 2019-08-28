@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Counter from '../Counter/index'
 
 
 
@@ -40,6 +39,8 @@ let offset = null, interval = null
         
           componentDidMount() {
             this.play()
+            document.addEventListener("keydown", this.handleKeyPress);
+
           }
         
           componentWillUnmount() {
@@ -147,8 +148,8 @@ let offset = null, interval = null
             };
 
             return (
-              <Container style={{border:"solid 2px green"}} >
-              <Row style={timerStyle} onKeyDown={this.handleKeyPress} tabIndex="0" >
+              <Container style={{border:"solid 2px green"}}  >
+              <Row style={timerStyle}   >
               <Col style={{border:"solid 2px orange"}}/>
               <Col xs={6}  className="react-timer" >
                 <h3 style={secondsStyles} className="seconds"> {this.state.time} {this.props.prefix} </h3>
