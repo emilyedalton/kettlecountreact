@@ -2,6 +2,12 @@
 import React, { Component } from 'react'
 import SecondsTohhmmss from './SecondsTohhmmss'
 import PropTypes from 'prop-types'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
+
+
 
 let offset = null, interval = null
 
@@ -56,8 +62,8 @@ let offset = null, interval = null
             }
           }
           handleKeyPress= event => {
-              switch (event.key){
-              case "Enter":
+             switch (event.key){
+             case "Enter":
              this.play()
              case "r":
              this.reset()
@@ -98,7 +104,8 @@ let offset = null, interval = null
           render() {
             const timerStyle = {
               margin: "0px",
-              padding: "2em"
+              padding: "2em",
+              border: "2px solid red"
             };
         
             const buttonStyle = {
@@ -108,6 +115,8 @@ let offset = null, interval = null
               marginRight: "5px",
               padding: "10px",
               fontWeight: "200"
+              
+
             };
         
             const secondsStyles = {
@@ -115,18 +124,30 @@ let offset = null, interval = null
               fontWeight: "200",
               lineHeight: "1.5",
               margin: "0",
-              color: "#666"
+              color: "#666",
+              textAlign: "center"
             };
 
             return (
-              <div style={timerStyle} className="react-timer" onKeyPress={this.handleKeyPress} tabIndex="0" >
+              <Container style={{border:"solid 2px green"}} >
+              <Row style={timerStyle} onKeyPress={this.handleKeyPress} tabIndex="0" >
+              <Col style={{border:"solid 2px orange"}}/>
+              <Col xs={6}  className="react-timer" >
                 <h3 style={secondsStyles} className="seconds"> {this.state.time} {this.props.prefix} </h3>
-                <input />
-                <br />
+                <br /> </Col>
+                <Col style={{border:"solid 2px orange"}}/>
+
+</Row>
+<Row>
+<Col/>
+<Col xs={6} style={{textAlign: "center"}} >
                 <button onClick={this.reset.bind(this)} style={buttonStyle} >reset</button>
                 <button onClick={this.play.bind(this)} style={buttonStyle} > play</button> 
-                <button onClick={this.pause.bind(this)} style={buttonStyle}>pause</button>
-              </div>
+                <button onClick={this.pause.bind(this)} style={buttonStyle}>pause</button> </Col>
+                <Col/>
+</Row>
+
+              </Container>
             )
           }
         }
