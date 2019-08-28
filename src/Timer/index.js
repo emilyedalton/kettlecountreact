@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Counter from '../Counter/index'
 
 
 
@@ -24,6 +25,8 @@ let offset = null, interval = null
         **/
        class TimerDisplay extends Component {
   
+      
+
           static get propTypes () {
             return {
               options: PropTypes.object
@@ -32,7 +35,7 @@ let offset = null, interval = null
         
           constructor(props) {
             super(props)
-            this.state = { clock: 0, time: '' }
+            this.state = { clock: 0, time: '', count: 0}
           }
         
           componentDidMount() {
@@ -57,18 +60,19 @@ let offset = null, interval = null
               interval = setInterval(this.update.bind(this), this.props.options.delay)
             }
           }
-          handleKeyPress= event => {
-             switch (event.key){
-             case "Enter":
-             this.play()
-             case "r":
-             this.reset()
-             break;
-             case "p":
-             this.pause()
-             break;
-              }
-            }
+
+          increaseCount = () => {
+            this.setState({
+              count: this.state.count + 1
+            })
+          }
+
+          decreaseCount = () => {
+            this.setState({
+              count: this.state.count -1
+            })
+          }
+         
         
           reset() {
             let clockReset = 0
@@ -96,7 +100,24 @@ let offset = null, interval = null
             offset = now
             return newOffset
           }
-        
+          handleKeyPress= event => {
+            switch (event.key){
+            case "Enter":
+            this.play()
+            case "r":
+            this.reset()
+            break;
+            case "p":
+            this.pause()
+            break;
+            case "ArrowUp":
+            this.increaseCount()
+            break;
+            case "ArrowDown":
+            this.decreaseCount()
+            break;
+             }
+           }
           render() {
             const timerStyle = {
               margin: "0px",
@@ -104,6 +125,7 @@ let offset = null, interval = null
               border: "2px solid red"
             };
         
+          
             const buttonStyle = {
               background: "#fff",
               color: "red",
@@ -126,7 +148,7 @@ let offset = null, interval = null
 
             return (
               <Container style={{border:"solid 2px green"}} >
-              <Row style={timerStyle} onKeyPress={this.handleKeyPress} tabIndex="0" >
+              <Row style={timerStyle} onKeyDown={this.handleKeyPress} tabIndex="0" >
               <Col style={{border:"solid 2px orange"}}/>
               <Col xs={6}  className="react-timer" >
                 <h3 style={secondsStyles} className="seconds"> {this.state.time} {this.props.prefix} </h3>
@@ -143,6 +165,9 @@ let offset = null, interval = null
                 <Col/>
 </Row>
 
+<h1 >{this.state.count}</h1>
+      <button onClick={this.increaseCount}>+</button>
+      <button onClick={this.decreaseCount}>-</button>
               </Container>
             )
           }
