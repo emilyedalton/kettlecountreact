@@ -106,6 +106,7 @@ let offset = null, interval = null
             switch (event.key){
             case "Enter":
             this.play()
+            break;
             case "r":
             this.reset()
             break;
@@ -140,7 +141,7 @@ let offset = null, interval = null
             };
         
             const secondsStyles = {
-              fontSize: "500%",
+              fontSize: "200px",
               fontWeight: "200",
               lineHeight: "1.5",
               margin: "0",
@@ -149,15 +150,16 @@ let offset = null, interval = null
             };
 
             return (
-              <Container style={{border:"solid 2px green"}}  >
-              <Row style={timerStyle}   >
+              <Container fluid className="react-timer"  >
+              {/* <Row style={timerStyle}   >
               <Col style={{border:"solid 2px orange"}}/>
-              <Col xs={8}  className="react-timer" >
+              <Col xs={8}  > */}
                 <h3 style={secondsStyles} className="seconds"> {this.state.time} {this.props.prefix} </h3>
-                <br /> </Col>
+                <br /> 
+                {/* </Col>
                 <Col style={{border:"solid 2px orange"}}/>
 
-</Row>
+</Row> */}
 <Row>
 <Col/>
 <Col xs={8} style={{textAlign: "center"}} >

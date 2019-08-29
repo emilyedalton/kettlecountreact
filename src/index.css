@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-
+@import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC|Lexend+Tera&display=swap');
 
 body {
-  font-family: 'Josefin Sans', cursive;
+  font-family: 'Lexend Tera', sans-serif;
+  overflow: hidden;
 }
 
 code {
@@ -10,6 +11,7 @@ code {
     monospace;
 }
 
-.Jumbotron{
-font-family: 'Times New Roman', Times, serif
+h1{
+  font-family: 'Bowlby One SC', cursive;
+
 }
