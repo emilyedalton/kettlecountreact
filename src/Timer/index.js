@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import SecondsTohhmmss from './SecondsTohhmmss'
 import PropTypes from 'prop-types'
+import Counter from '../Counter'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -139,7 +140,7 @@ let offset = null, interval = null
             };
         
             const secondsStyles = {
-              fontSize: "200%",
+              fontSize: "500%",
               fontWeight: "200",
               lineHeight: "1.5",
               margin: "0",
@@ -151,7 +152,7 @@ let offset = null, interval = null
               <Container style={{border:"solid 2px green"}}  >
               <Row style={timerStyle}   >
               <Col style={{border:"solid 2px orange"}}/>
-              <Col xs={6}  className="react-timer" >
+              <Col xs={8}  className="react-timer" >
                 <h3 style={secondsStyles} className="seconds"> {this.state.time} {this.props.prefix} </h3>
                 <br /> </Col>
                 <Col style={{border:"solid 2px orange"}}/>
@@ -159,16 +160,20 @@ let offset = null, interval = null
 </Row>
 <Row>
 <Col/>
-<Col xs={6} style={{textAlign: "center"}} >
+<Col xs={8} style={{textAlign: "center"}} >
                 <button onClick={this.reset.bind(this)} style={buttonStyle} >reset</button>
                 <button onClick={this.play.bind(this)} style={buttonStyle} > play</button> 
                 <button onClick={this.pause.bind(this)} style={buttonStyle}>pause</button> </Col>
                 <Col/>
 </Row>
 
-<h1 >{this.state.count}</h1>
-      <button onClick={this.increaseCount}>+</button>
-      <button onClick={this.decreaseCount}>-</button>
+<Counter
+count={this.state.count}
+buttonStyle ={buttonStyle}
+increaseCount={this.increaseCount}
+decreaseCount={this.decreaseCount}/>
+
+
               </Container>
             )
           }
