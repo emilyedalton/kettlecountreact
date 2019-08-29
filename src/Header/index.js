@@ -6,6 +6,6 @@ class Header extends Component {
 
     render () {
 return(
-<h1>KettleCount</h1> 
+<h1> 🧛‍♂KettleCount</h1> 
  ) }}
     export default Header
