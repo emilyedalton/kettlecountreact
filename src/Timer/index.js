@@ -4,6 +4,7 @@ import SecondsTohhmmss from './SecondsTohhmmss'
 import PropTypes from 'prop-types'
 import Counter from '../Counter'
 import Container from 'react-bootstrap/Container'
+import TimerButtons from '../TimerButtons'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
@@ -131,8 +132,8 @@ let offset = null, interval = null
           
             const buttonStyle = {
               background: "#fff",
-              color: "red",
-              border: "1px solid #ddd",
+              color: "black",
+              border: "1px solid black",
               marginRight: "5px",
               padding: "10px",
               fontWeight: "200"
@@ -160,22 +161,19 @@ let offset = null, interval = null
                 <Col style={{border:"solid 2px orange"}}/>
 
 </Row> */}
-<Row>
-<Col/>
-<Col xs={8} style={{textAlign: "center"}} >
-                <button onClick={this.reset.bind(this)} style={buttonStyle} >reset</button>
-                <button onClick={this.play.bind(this)} style={buttonStyle} > play</button> 
-                <button onClick={this.pause.bind(this)} style={buttonStyle}>pause</button> </Col>
-                <Col/>
-</Row>
+
 
 <Counter
 count={this.state.count}
-buttonStyle ={buttonStyle}
+/>
+
+<TimerButtons
+reset={this.reset.bind(this)}
+play={this.play.bind(this)}
+pause={this.pause.bind(this)}
 increaseCount={this.increaseCount}
-decreaseCount={this.decreaseCount}/>
-
-
+decreaseCount={this.decreaseCount}
+buttonStyle={buttonStyle}/>
               </Container>
             )
           }

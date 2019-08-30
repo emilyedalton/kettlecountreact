@@ -12,9 +12,8 @@ return(
 <Row>
 <Col/>
 <Col xs={6} style={{textAlign: "center"}} >
-<h1 >{count}</h1>
-      <button style ={buttonStyle} onClick={increaseCount}>+</button>
-      <button style ={buttonStyle} onClick={decreaseCount}>-</button> </Col>
+<h1>{count}</h1>
+ </Col>
                 <Col/>
 </Row>
 
