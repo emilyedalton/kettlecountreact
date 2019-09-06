@@ -20,16 +20,16 @@ class TimerButtons extends Component {
 
 <Row>
 <Col/>
-<Col xs={12}  >
-<Navbar style={{border:"solid 2px red"}}>
-<Col md={8} style={{border:"solid 2px blue"}}>
-    <ButtonGroup style={{border:"solid 2px blue"}} className="mr-2">
+<Col xs={12} className="justify-content-between" >
+<Navbar>
+<Col md={8} >
+    <ButtonGroup  className="mr-2">
                 <Button size ="lg" onClick={reset} style={buttonStyle} >reset</Button>
                 <Button size ="lg" onClick={play} style={buttonStyle} > play</Button> 
                 <Button size ="lg" onClick={pause} style={buttonStyle}>pause</Button> 
                 </ButtonGroup>
                 </Col>
-                <Col md={4} style={{TextAlign:"center"}} style={{border:"solid 2px green"}}>
+                <Col md={4} >
                 <ButtonGroup >
                 <Button size ="lg" style={buttonStyle} onClick={increaseCount}>+</Button>
                 <Button size ="lg"style ={buttonStyle} onClick={decreaseCount}>-</Button>

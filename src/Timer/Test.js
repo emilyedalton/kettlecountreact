@@ -1,6 +1,7 @@
 import TimerDisplay from './index'
 import ReactDOM from 'react-dom'
 import React, { Component, PropTypes } from 'react'
+import TenSecond from '../TenSec'
 
 class TestComponent extends Component {
 
@@ -9,6 +10,8 @@ class TestComponent extends Component {
     let OPTIONS = { prefix: 'seconds elapsed!', delay: 100}
     return (
       <div>
+      {/* <TenSecond options={OPTIONS} /> */}
+
         <TimerDisplay options={OPTIONS} />
       </div>
     )

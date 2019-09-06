@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Counter from '../Counter'
 import Container from 'react-bootstrap/Container'
 import TimerButtons from '../TimerButtons'
+import ActualClock from '../ActualClock'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
@@ -18,7 +19,7 @@ let offset = null, interval = null
   /* delay is just the delay on showing the update of the timer */
     
        
-        
+ 
         
         /**
          * Timer module
@@ -83,6 +84,12 @@ let offset = null, interval = null
             let time = SecondsTohhmmss(clockReset / 1000)
             this.setState({time: time })
           }
+          countdown(){
+              let countdown = 10
+              this.setState({clock: countdown })
+              let time = SecondsTohhmmss(countdown - 1000)
+            this.setState({time: time })
+          }
         //   handleKeyReset= event => {
         //     if (event.key == 'r') {
         //       this.reset();
@@ -103,6 +110,7 @@ let offset = null, interval = null
             offset = now
             return newOffset
           }
+          
           handleKeyPress= event => {
             switch (event.key){
             case "Enter":
@@ -122,6 +130,13 @@ let offset = null, interval = null
             break;
              }
            }
+
+        //    countdown(){
+        //     let clockReset = 10
+        //     this.setState({clock: clockReset })
+        //     let time = SecondsTohhmmss-clockReset
+        //     this.setState({time: time })
+        //   }
           render() {
             const timerStyle = {
               margin: "0px",
@@ -155,13 +170,13 @@ let offset = null, interval = null
               {/* <Row style={timerStyle}   >
               <Col style={{border:"solid 2px orange"}}/>
               <Col xs={8}  > */}
-                <h3 style={secondsStyles} className="seconds"> {this.state.time} {this.props.prefix} </h3>
+            <ActualClock style={secondsStyles} className="seconds" time={this.state.time} prefix={this.props.prefix}/>
                 <br /> 
+               
                 {/* </Col>
                 <Col style={{border:"solid 2px orange"}}/>
 
 </Row> */}
-
 
 <Counter
 count={this.state.count}
