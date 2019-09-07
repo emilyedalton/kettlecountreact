@@ -37,11 +37,12 @@ let offset = null, interval = null
         
           constructor(props) {
             super(props)
-            this.state = { clock: 0, time: '', count: 0}
+            this.state = { clock: 0, time: '', count: 0, seconds: 10}
           }
+          
         
           componentDidMount() {
-            this.play()
+            // this.play()
             document.addEventListener("keydown", this.handleKeyPress);
 
           }
