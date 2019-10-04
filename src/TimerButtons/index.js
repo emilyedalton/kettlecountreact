@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import {Button, ButtonGroup, ButtonToolbar, Navbar} from 'react-bootstrap'
+import {Button, ButtonGroup,Navbar} from 'react-bootstrap'
 
 
 
@@ -17,28 +17,25 @@ class TimerButtons extends Component {
         return(
 
 
-
-<Row>
+<div>
 <Col/>
-<Col xs={12} className="justify-content-between" >
-<Navbar>
-<Col md={8} >
-    <ButtonGroup  className="mr-2">
+<Col lg = "true" className="justify-content-between" style={{border: "2px solid blue"}} > 
+{/* <Navbar> */}
+ {/* <Col md={8} >  */}
+    {/* <ButtonGroup style={{border: "solid 2px red"}}className="mr-1"> */}
                 <Button size ="lg" onClick={reset} style={buttonStyle} >reset</Button>
                 <Button size ="lg" onClick={play} style={buttonStyle} > play</Button> 
                 <Button size ="lg" onClick={pause} style={buttonStyle}>pause</Button> 
-                </ButtonGroup>
+               
+                <Button size ="lg" style={buttonStyle} className="float-right" onClick={increaseCount}>+</Button>
+                <Button size ="lg"style ={buttonStyle}  className="float-right"onClick={decreaseCount}>-</Button>
+              
+               <Col/>
+               
+                {/* </ButtonGroup> */}
                 </Col>
-                <Col md={4} >
-                <ButtonGroup >
-                <Button size ="lg" style={buttonStyle} onClick={increaseCount}>+</Button>
-                <Button size ="lg"style ={buttonStyle} onClick={decreaseCount}>-</Button>
-                </ButtonGroup>
-                </Col>
-                </Navbar>
-                </Col>
-                <Col/>
-</Row>
+                </div>
+
         )
     }
 }
