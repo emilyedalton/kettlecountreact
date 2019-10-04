@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import '../'
 
 class Countdown extends Component {
     constructor() {
@@ -30,7 +30,7 @@ class Countdown extends Component {
     this.startTimer()
 
     }
-  
+   
     startTimer() {
         let timeLeftVar = this.secondsToTime(this.state.seconds);
         this.setState({ time: timeLeftVar });
@@ -47,6 +47,7 @@ class Countdown extends Component {
         seconds: seconds,
       });
       
+      
       // Check if we're at zero.
       if (seconds == 0) { 
         clearInterval(this.timer);
@@ -54,9 +55,11 @@ class Countdown extends Component {
     }
   
     render() {
+        const {style} = this.props;
+
       return(
-        <div>
-          <button onClick={this.startTimer}>Start</button>
+        <div style={style}>
+          {/* <button onClick={this.startTimer}>Start</button> */}
           {this.state.time.s}
         </div>
       );

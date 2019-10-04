@@ -3,9 +3,10 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 class ActualClock extends Component {
+    
 
     render () {
-        const {style, time, prefix} = this.props;
+        const {style, time, prefix,} = this.props;
 
 return(
     <div>

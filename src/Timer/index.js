@@ -6,6 +6,7 @@ import Counter from '../Counter'
 import Container from 'react-bootstrap/Container'
 import TimerButtons from '../TimerButtons'
 import ActualClock from '../ActualClock'
+import Countdown from '../Countdown'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
@@ -37,12 +38,14 @@ let offset = null, interval = null
         
           constructor(props) {
             super(props)
-            this.state = { clock: 0, time: '', count: 0, seconds: 10}
+            this.state = { clock: 0, time: '', count: 0,  countDownTime: {}, seconds: 5}
+            
+
           }
           
         
           componentDidMount() {
-            // this.play()
+            this.play()
             document.addEventListener("keydown", this.handleKeyPress);
 
           }
@@ -85,17 +88,7 @@ let offset = null, interval = null
             let time = SecondsTohhmmss(clockReset / 1000)
             this.setState({time: time })
           }
-          countdown(){
-              let countdown = 10
-              this.setState({clock: countdown })
-              let time = SecondsTohhmmss(countdown - 1000)
-            this.setState({time: time })
-          }
-        //   handleKeyReset= event => {
-        //     if (event.key == 'r') {
-        //       this.reset();
-        //     }
-        //   };
+      
         
           update() {
             let clock = this.state.clock
@@ -132,17 +125,11 @@ let offset = null, interval = null
              }
            }
 
-        //    countdown(){
-        //     let clockReset = 10
-        //     this.setState({clock: clockReset })
-        //     let time = SecondsTohhmmss-clockReset
-        //     this.setState({time: time })
-        //   }
+       
           render() {
             const timerStyle = {
               margin: "0px",
               padding: "2em",
-              border: "2px solid red"
             };
         
           
@@ -168,16 +155,15 @@ let offset = null, interval = null
 
             return (
               <Container fluid className="react-timer"  >
-              {/* <Row style={timerStyle}   >
-              <Col style={{border:"solid 2px orange"}}/>
-              <Col xs={8}  > */}
+              <Row style={timerStyle}   >
+              <Col xs={8}  > 
             <ActualClock style={secondsStyles} className="seconds" time={this.state.time} prefix={this.props.prefix}/>
                 <br /> 
                
-                {/* </Col>
-                <Col style={{border:"solid 2px orange"}}/>
+               </Col>
+                <Col />
 
-</Row> */}
+</Row> 
 
 <Counter
 count={this.state.count}
