@@ -39,7 +39,7 @@ let offset = null, interval = null
           constructor(props) {
             super(props)
             this.tick = this.tick.bind(this)
-            this.state = { clock: 0, time: '', count: 0,  countDownTime: {}, seconds: 10}
+            this.state = { clock: 0, time: '00:00:00', count: 0,  countDownTime: {}, seconds: 10}
             
 
           }
@@ -47,8 +47,9 @@ let offset = null, interval = null
         
           componentDidMount() {
             // this.play()
-   this.timer = setInterval(this.tick, 1000);
-  document.addEventListener("keydown", this.handleKeyPress);
+            document.addEventListener("keydown", this.handleKeyPress);
+
+            this.timer = setInterval(this.tick, 1000);
 
           }
 
@@ -56,7 +57,7 @@ let offset = null, interval = null
             if (this.state.seconds > 0) {
               this.setState({seconds: this.state.seconds - 1})
             } else {
-              // clearInterval(this.timer);
+              clearInterval(this.timer);
 this.play()            }
           }
         
