@@ -38,16 +38,26 @@ let offset = null, interval = null
         
           constructor(props) {
             super(props)
-            this.state = { clock: 0, time: '', count: 0,  countDownTime: {}, seconds: 5}
+            this.tick = this.tick.bind(this)
+            this.state = { clock: 0, time: '', count: 0,  countDownTime: {}, seconds: 10}
             
 
           }
           
         
           componentDidMount() {
-            this.play()
-            document.addEventListener("keydown", this.handleKeyPress);
+            // this.play()
+   this.timer = setInterval(this.tick, 1000);
+  document.addEventListener("keydown", this.handleKeyPress);
 
+          }
+
+          tick(){
+            if (this.state.seconds > 0) {
+              this.setState({seconds: this.state.seconds - 1})
+            } else {
+              // clearInterval(this.timer);
+this.play()            }
           }
         
           componentWillUnmount() {
@@ -155,8 +165,11 @@ let offset = null, interval = null
 
             return (
               <Container fluid className="react-timer"  >
+                    <h1>{this.state.seconds}...</h1>
+
               <Row style={timerStyle}   >
               <Col xs={8}  > 
+              {/* <Countdown/> */}
             <ActualClock style={secondsStyles} className="seconds" time={this.state.time} prefix={this.props.prefix}/>
                 <br /> 
                

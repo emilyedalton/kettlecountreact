@@ -56,17 +56,17 @@ class TenSecond extends Component {
     //     }
     //   }
 
-      increaseCount = () => {
-        this.setState({
-          count: this.state.count + 1
-        })
-      }
+    //   increaseCount = () => {
+    //     this.setState({
+    //       count: this.state.count + 1
+    //     })
+    //   }
 
-      decreaseCount = () => {
-        this.setState({
-          count: this.state.count -1
-        })
-      }
+    //   decreaseCount = () => {
+    //     this.setState({
+    //       count: this.state.count -1
+    //     })
+    //   }
      
     
     //   reset() {
