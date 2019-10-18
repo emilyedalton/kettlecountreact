@@ -5,16 +5,16 @@ import Col from 'react-bootstrap/Col'
 class Counter extends Component {
 
     render () {
-        const {increaseCount, decreaseCount, buttonStyle, count} = this.props;
+        const {style, count} = this.props;
 
 return(
 <div>
 <Row>
 <Col/>
-<Col xs={6} style={{textAlign: "center"}} >
-<h1>{count}</h1>
+<Col xs={6} >
+<h4 style={style} classname="seconds">{count}</h4>
  </Col>
-                <Col/>
+ <Col/>
 </Row>
 
 

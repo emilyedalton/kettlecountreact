@@ -4,10 +4,13 @@ import '../'
 class Countdown extends Component {
 
   render(){
-    const {seconds}=this.props
-    return <div style={{width: "100%", textAlign: "center"}}>
-      <h1>{seconds}...</h1>
+    const {seconds, style}=this.props
+    return (
+      <div>
+      <h2 style={style} classname="seconds"> {seconds}</h2>
+
     </div>
+    )
   }
 }
   export default Countdown

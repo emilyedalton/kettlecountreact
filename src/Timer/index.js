@@ -21,11 +21,7 @@ let offset = null, interval = null
     
        
  
-        
-        /**
-         * Timer module
-         * A simple timer component.
-        **/
+  
        class TimerDisplay extends Component {
   
       
@@ -46,11 +42,8 @@ let offset = null, interval = null
           
         
           componentDidMount() {
-            // this.play()
             document.addEventListener("keydown", this.handleKeyPress);
-
             this.timer = setInterval(this.tick, 1000);
-
           }
 
           tick(){
@@ -159,8 +152,8 @@ let offset = null, interval = null
               fontSize: "200px",
               fontWeight: "200",
               lineHeight: "1.5",
-              margin: "0",
-              color: "#666",
+              margin: "auto",
+              color: "black",
               textAlign: "center"
             };
 
@@ -168,10 +161,10 @@ let offset = null, interval = null
               <Container fluid className="react-timer"  >
 
               <Row style={timerStyle}   >
-              <Col xs={8}  > 
+              <Col xs={12}  > 
               {this.state.seconds > 0 ? (
 
-              <Countdown seconds={this.state.seconds}/> 
+              <Countdown seconds={this.state.seconds} style={secondsStyles}/> 
                   ) : (
             <ActualClock style={secondsStyles} className="seconds" time={this.state.time} prefix={this.props.prefix}/>
                ) } 
@@ -183,7 +176,7 @@ let offset = null, interval = null
 </Row> 
 
 <Counter
-count={this.state.count}
+count={this.state.count} style={secondsStyles}
 />
 
 <TimerButtons
