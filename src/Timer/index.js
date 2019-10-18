@@ -58,7 +58,7 @@ let offset = null, interval = null
               this.setState({seconds: this.state.seconds - 1})
             } else {
               clearInterval(this.timer);
-this.play()            }
+            this.play()            }
           }
         
           componentWillUnmount() {
@@ -166,12 +166,15 @@ this.play()            }
 
             return (
               <Container fluid className="react-timer"  >
-                    <h1>{this.state.seconds}...</h1>
 
               <Row style={timerStyle}   >
               <Col xs={8}  > 
-              {/* <Countdown/> */}
+              {this.state.seconds > 0 ? (
+
+              <Countdown seconds={this.state.seconds}/> 
+                  ) : (
             <ActualClock style={secondsStyles} className="seconds" time={this.state.time} prefix={this.props.prefix}/>
+               ) } 
                 <br /> 
                
                </Col>
