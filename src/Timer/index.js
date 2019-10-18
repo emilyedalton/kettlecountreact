@@ -7,25 +7,17 @@ import Container from 'react-bootstrap/Container'
 import TimerButtons from '../TimerButtons'
 import ActualClock from '../ActualClock'
 import Countdown from '../Countdown'
+import Header from '../Header'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-
-
-
 let offset = null, interval = null
-
-
 
   /* delay is just the delay on showing the update of the timer */
     
-       
- 
-  
+      
        class TimerDisplay extends Component {
   
-      
-
           static get propTypes () {
             return {
               options: PropTypes.object
@@ -131,12 +123,6 @@ let offset = null, interval = null
 
        
           render() {
-            const timerStyle = {
-              margin: "0px",
-              padding: "2em",
-            };
-        
-          
             const buttonStyle = {
               background: "#fff",
               color: "black",
@@ -151,22 +137,29 @@ let offset = null, interval = null
             const secondsStyles = {
               fontSize: "200px",
               fontWeight: "200",
-              lineHeight: "1.5",
+              // lineHeight: "1.5",
               margin: "auto",
               color: "black",
               textAlign: "center"
             };
 
             return (
-              <Container fluid className="react-timer"  >
+<Container fluid className="react-timer" >
+<Header/>
 
-              <Row style={timerStyle}   >
+              <Row>
               <Col xs={12}  > 
               {this.state.seconds > 0 ? (
 
-              <Countdown seconds={this.state.seconds} style={secondsStyles}/> 
+              <Countdown 
+              seconds={this.state.seconds} 
+              style={secondsStyles}/> 
                   ) : (
-            <ActualClock style={secondsStyles} className="seconds" time={this.state.time} prefix={this.props.prefix}/>
+            <ActualClock 
+            style={secondsStyles} 
+            className="seconds" 
+            time={this.state.time} 
+            prefix={this.props.prefix}/>
                ) } 
                 <br /> 
                
@@ -176,9 +169,9 @@ let offset = null, interval = null
 </Row> 
 
 <Counter
-count={this.state.count} style={secondsStyles}
+count={this.state.count} 
+style={secondsStyles}
 />
-
 <TimerButtons
 reset={this.reset.bind(this)}
 play={this.play.bind(this)}
@@ -186,6 +179,7 @@ pause={this.pause.bind(this)}
 increaseCount={this.increaseCount}
 decreaseCount={this.decreaseCount}
 buttonStyle={buttonStyle}/>
+
               </Container>
             )
           }

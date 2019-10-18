@@ -18,11 +18,9 @@ class TimerButtons extends Component {
 
 
 <div>
-<Col/>
-<Col lg = "true" className="justify-content-between" style={{border: "2px solid blue"}} > 
-{/* <Navbar> */}
- {/* <Col md={8} >  */}
-    {/* <ButtonGroup style={{border: "solid 2px red"}}className="mr-1"> */}
+
+<Col lg = "true" className="justify-content-between" > 
+<Row/>
                 <Button size ="lg" onClick={reset} style={buttonStyle} >reset</Button>
                 <Button size ="lg" onClick={play} style={buttonStyle} > play</Button> 
                 <Button size ="lg" onClick={pause} style={buttonStyle}>pause</Button> 
@@ -30,10 +28,8 @@ class TimerButtons extends Component {
                 <Button size ="lg" style={buttonStyle} className="float-right" onClick={increaseCount}>+</Button>
                 <Button size ="lg"style ={buttonStyle}  className="float-right"onClick={decreaseCount}>-</Button>
               
-               <Col/>
-               
-                {/* </ButtonGroup> */}
-                </Col>
+</Col>               
+              
                 </div>
 
         )
