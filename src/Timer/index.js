@@ -35,7 +35,7 @@ let offset = null, interval = null
         
           componentDidMount() {
             document.addEventListener("keydown", this.handleKeyPress);
-            this.timer = setInterval(this.tick, 1000);
+            // this.timer = setInterval(this.tick, 1000);
           }
 
           tick(){
@@ -43,7 +43,8 @@ let offset = null, interval = null
               this.setState({seconds: this.state.seconds - 1})
             } else {
               clearInterval(this.timer);
-            this.play()            }
+            this.play()        
+              }
           }
         
           componentWillUnmount() {
@@ -104,7 +105,8 @@ let offset = null, interval = null
           handleKeyPress= event => {
             switch (event.key){
             case "Enter":
-            this.play()
+            this.timer = setInterval(this.tick, 1000);
+            // this.play()
             break;
             case "r":
             this.reset()
