@@ -85,7 +85,7 @@ let offset = null, interval = null
             this.setState({seconds: clockSeconds})
             this.setState({clock: clockReset })
             let time = SecondsTohhmmss(clockReset / 1000)
-            this.setState({time: time })
+            this.setState({time: '00:00:00' })
           }
       
         
